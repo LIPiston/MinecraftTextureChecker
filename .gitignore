@@ -1,0 +1,14 @@
+# Node modules
+node_modules/
+
+# Vite build output
+dist/
+
+# Logs
+npm-debug.log
+
+# Environment variables
+.env
+
+# Uploads and temporary files
+uploads/ 
