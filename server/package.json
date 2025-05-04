@@ -4,13 +4,25 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build:client": "npm install --prefix ../client && npm run build --prefix ../client",
+    "build:exe": "npm run build:client && pkg . --targets node16-win-x64,node16-macos-x64,node16-linux-x64 --output minecraft-texture-checker"
   },
   "dependencies": {
+    "adm-zip": "^0.5.9",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "multer": "^1.4.4",
-    "adm-zip": "^0.5.9",
-    "node-fetch": "^2.6.1",
-    "cors": "^2.8.5"
+    "node-fetch": "^2.6.1"
+  },
+  "bin": "index.js",
+  "pkg": {
+    "assets": [
+      "public/**/*"
+    ],
+    "outputPath": "dist"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
   }
-} 
+}
